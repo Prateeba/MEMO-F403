@@ -1,0 +1,42 @@
+\section{Reconfiguration problems}
+\label{sec:reconfigureIntro}
+
+\subsection{Problem definition}
+\begin{defn}
+The general form of reconfiguration problems considered here is the following : Given two combinatorial configurations satisfying a problem while satisfying some constraints, is it possible to transform one configuration to another by modifying only one element at a time and that the intermediate solution remains satisfiable at all times. Combinatorial reconfiguration problems ask the reachability between the two given satisfying solutions. 
+\end{defn}
+
+\subsection{Theory Model}
+\subsubsection{Configuration Graph}
+\paragraph{}In computation complexity theory, a Turing Machine was used to capture the idea of an algorithm. For configuration problems, a powerful tool is the Configuration Graph. The latter is used to represent the solution space of the reconfiguration problem and to introduce an adjacency relation on the set of satisfying solutions. 
+
+\begin{defn}
+Let $G = (V,E)$ be the configuration graph where $V = \{$collection of all configurations$\}$ (ie all possible solutions) and an edge $xy \in E$ if one configuration can be transformed to another by changing only one variable. (i.e in a single reconfiguration step). 
+\end{defn}
+
+\begin{defn}
+A reconfiguration sequence is a path between two solutions in the configuration graph. It can be seen as a sequence of reconfiguration steps transforming one solution into the other.
+\end{defn}
+
+\begin{defn}Using the language of configuration graphs, two connectivity questions arises: 
+\begin{enumerate}
+    \item Given a configuration graph $G = (V,E)$ and two vertices $s,t \in V $, is there a path from $s$ to $t$ in $G$ such that each intermediate solution remains satisfying? 
+    \item Given the set of all satisfying configurations, is the configuration graph connected? 
+\end{enumerate}
+The first connectivity problem will be further referred to as the $st$-connectivity problem. The second problem will be referred to as the connectivity problem.
+\end{defn}
+
+\subsection{Tools for proving the complexity of reachability problems of reconfiguration problems}
+In general the reconfiguration problem of an $\mathcal{NP-}complete$ problem is PSPACE-complete. 
+And the reconfiguration problem of a polynomial-time solvable problem is PSPACE. However there are exceptions to this general rule : 
+\begin{enumerate}
+    \item The $3-$coloring problem is $\mathcal{NP-}hard$ and its corresponding reconfiguration problem is solvable in polynomial time. 
+    \item The Shortest path problem is solvable in polynomial time whereas it's corresponding reconfiguration problem is PSPACE-complete.
+\end{enumerate}
+\\
+Many of the reductions used to prove the PSPACE-hardness of various reconfiguration problems mimics the $\mathcal{NP-}hardness$ reductions used to prove that the host problem is $\mathcal{NP-}hard$. \\
+\\
+Just as there was a need for the first $\mathcal{NP-}$complete problem to prove the $\mathcal{NP-}$completeness of other problems in $\mathcal{NP}$, a first PSPACE complete reconfiguration problem was needed to prove the PSPACE completeness of other reconfiguration problems. \\
+\\
+The basis problem used to prove the PSPACE-completeness of the reconfiguration problems is the Non deterministic Constraint Logic Machine reconfiguration problem $\boldbf{NCL}$. 
+

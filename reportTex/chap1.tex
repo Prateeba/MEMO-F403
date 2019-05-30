@@ -1,0 +1,147 @@
+\section{Preliminaries}
+\label{sec:preliminaries}
+\subsection{Mathematical Notions and terminologies}
+
+\subsubsection{Functions and relations}
+\begin{defn}
+A function $f$ is a process that associates to each element of a set $X$ at most one element of a set $Y$. The set $X$ is called the domain of $f$ and the set $Y$ is its range.
+$f : \mathcal{D} \rightarrow  \mathcal{R}$
+\end{defn}
+
+\subsubsection{Graphs}\cite{diestel_graph_2000}
+\begin{defn}
+A graph is a mathematical structure used to model pairwise relations between objects. More formally, a graph is a pair $G = (V, E)$ where $V$ is the set of vertices or nodes of the graph $G$ and $E$ its set of edges. An edge ${x,y}$ will be written as $xy$.
+\end{defn}
+
+\begin{defn}
+A graph $G^{'}$ is a subgraph of $G$ if $V^{'} \subseteq V$ and $E^{'} \subseteq E$. $G$ is then the supergraph of $G^{'}$.
+\end{defn}
+
+\begin{defn}
+If $G^{'}$ is the subgraph of $G$ and $G^{'}$ contains all the edges $xy \in E$ with $x,y \in V^{'}$ then $G^{'}$ is said to be the induced subgraph of $G$.  
+\end{defn}
+
+\begin{defn}
+A path $P$ in a graph is a sequence of edges which connects a sequence of distinct vertices. More formally, a path is a non-empty graph $P = (V,E)$ where $V = \{x_0 ,x_1, \dots, x_k\}$ and $E = 
+\{x_0x_1,x_1x_2, \dots , x_{k-1}x_k\}$ and all the $x_i$ are distinct.
+\end{defn}
+
+\section{Theory of Computation}
+\subsection{Basic notions}
+
+In theoretical computer science, the theory of computation studies how efficiently problems can be solved on a model of computation, using an algorithm. It is divided in three main branches : Automata Theory, Computability Theory and Computational Complexity Theory. This research work will mostly focus on the third branch. 
+
+\begin{defn}
+An algorithm is an unambiguous procedure of how to solve a class of problems.
+\end{defn}
+
+\begin{defn}
+A decision problem is a problem that can be posed as a YES/NO question. Given a decision problem $A$ and an input $n$, it verifies whether or not $n$ satisfies a certain property. 
+Another convenient way of defining a decision problem is to give the set $L$ $\subseteq {0,1}^*$ of inputs for which the answer is YES.  $L$ is also called the language of the problem. 
+\end{defn}
+
+\subsection{Model of computation}
+As any other field, computer science is no stranger to using models in order to conceptualize certain concepts.
+
+\subsubsection{Turing Machine}
+Turing Machine is the computation model used in theoretical computer science to represent a general purpose computer. It uses an unlimited tape as its unlimited memory and has a tape head that can write and read symbols and move along the tape.  More formally : 
+\begin{defn}
+A Turing machine is a $7-tuple$, $(\mathcal{Q}, \Sigma, \Gamma, \delta,q_0, q_{accept}, q_{reject})$ where $\mathcal{Q}, \Sigma, \Gamma$ are all finite sets and
+\begin{enumerate}
+    \item $\mathcal{Q}$ is the set of states, 
+    \item $\Sigma$ is the input alphabet not containing the blank symbol  $\sqcup$,
+    \item $\Gamma$ is the tape alphabet, where $\sqcup \in \Gamma$ and $\Sigma \subseteq \Gamma$, 
+    \item $\delta : \mathcal{Q} \times \Gamma \rightarrow  \mathcal{Q} \times \Gamma \times \{L, R\}$ is the transition function, 
+    \item $q_0 \in \mathcal{Q}$ is the start state,
+    \item $q_{accept} \in \mathcal{Q}$ is the accept state, and 
+    \item $q_{reject} \in \mathcal{Q}$ is the reject state, where $q_{reject} \neq q_{accept}$
+\end{enumerate}
+
+\paragraph{Semantics :} The transition function $\delta$ explains how the Turing Machine operates, i.e how it goes from one state to another. \\
+If $\delta\{q,a\} = (r,b,L)$, and the machine is in state $q$ with its head on the tape cell reading the symbol $a$, it will replace the $a$ with a $b$, transition to state $r$ and move the head left.
+\end{defn}
+
+\subsubsection{Non deterministic Turing Machine}
+The non deterministic Turing Machine is defined the same way as a deterministic one except for the transition function. A non deterministic machine can at any computation step, proceed with various possibilities. Its transition is defined as follows :
+$\delta : \mathcal{Q} \times \Gamma \rightarrow  \mathcal{P}\{\mathcal{Q} \times \Gamma \times \{L, R\}\}$ where $\mathcal{P}$ is the power set of $\mathcal{Q}$.
+
+\subsection{Computability Theory}
+Computability theory focuses on whether a problem is solvable. Solvable problems are called decidable problems or tractable problems. 
+
+\begin{defn}
+Decidable problems are problems that can be solved by a conventional Turing Machine in a number of steps which is proportional to a polynomial function of the size of its input. The class of problems with this property is known as $\mathcal{P}$  or polynomial time . 
+\end{defn}
+In contrast, unsolvable problems are called undecidable problems or untractable problems. 
+
+\subsection{Computational Complexity Theory}
+Computational complexity theory contemplates not solely the solvability of a problem but also the resources required to solve computational problems. It is divided in two branches: Time complexity and Space complexity. 
+
+One important tool used to prove the complexity of a problem is the reduction. 
+
+\begin{defn}\cite{sipserIntroductionTheoryComputation2006}
+A reduction is the art of converting one problem into another such that a solution to the second problem can be used to solve the first problem. \\ 
+More formally : 
+Given two languages $A$ and $B$, $A$ is reducible to $B$ written $A \leq_m B$ if there is a computable function $f : \Sigma^* \rightarrow \Sigma^*$, where for every $w, w \in A \Longleftrightarrow f(w) \in B$. The function $f$ is called the reduction of $A$ to $B$.  
+\end{defn}
+
+\begin{defn}\cite{sipserIntroductionTheoryComputation2006}
+A function $f : \Sigma^* \rightarrow \Sigma^*$ is a computable function if on every input $w$, some Turing machine M halts with just $f(w)$ on its tape. 
+\end{defn}
+
+\subsubsection{Time complexity}
+Time complexity focuses on providing a way to measure the time used to solve a problem and to classify each problem according to its time complexity. To classify each problem, time complexity theory attempts to establish lower bounds on how efficient an algorithm can be for a given problem. 
+
+\begin{defn}
+Let $M$ be a Turing machine that halt on all inputs. The time complexity of $M$ is the function $f : \mathcal{N} \rightarrow  \mathcal{N}$, where $f(n)$ is the maximum number of steps $M$ uses on any input of length $n$. 
+\end{defn}
+
+\begin{defn}
+\textbf{Polynomial time : $\mathcal{P}$} is the class of languages that are decidable by a deterministic single tape turing machine.
+\end{defn}
+
+\begin{defn}
+\textbf{Non deterministic polynomial time : $\mathcal{NP}$} is the class of languages that are decidable by a Non deterministic polynomial time Turing machine.
+\end{defn}
+
+\paragraph{$\mathcal{P}$ vs $\mathcal{NP}$}
+Since the introduction to these complexity classes, a natural question arises. Is $\mathcal{P}=\mathcal{NP}$ or $\mathcal{P} \neq \mathcal{N}P $. 
+\begin{defn}
+\textbf{$\mathcal{NP}$-completeness} is the class of languages to which any language $A$ of $\mathcal{NP}$ can be reduced to. 
+More formally a problem $A$ is NP-complete if : 
+\begin{enumerate}
+    \item $A$ is in $\mathcal{NP}$
+    \item Any problem $B$ in $\mathcal{NP}$ is reducible to $A$ in polynomial time. 
+\end{enumerate}
+\end{defn}
+
+\subsubsection{Space complexity}
+
+\begin{defn}
+Let $M$ be a Turing machine that halts on all inputs. The space complexity of $M$ is the function $f : \mathcal{N} \rightarrow  \mathcal{N}$, where $f(n)$ is the maximum number of tape cells $M$ scans on any input of length $n$. 
+\end{defn}
+
+Analogous to the complexity classes defined in the earlier section,
+the different classes of space complexity will be defined here. 
+
+\begin{defn}
+PSPACE is the class of languages that are decidable in polynomial space on a deterministic Turing Machine.
+\end{defn}
+
+\begin{defn}
+NPSPACE is the class of languages that are decidable in polynomial space on a non deterministic Turing Machine.
+\end{defn}
+
+\begin{theorem}(Savitch's theorem) 
+For any function $f \in \Omega(\log(n))$, NSPACE($f(n)$) $\subseteq$ PSPACE($(f(n))^2$)
+\end{theorem}
+\begin{corollary}
+PSPACE = NPSPACE
+\end{corollary}
+
+\begin{defn}
+A language $A$ is PSPACE-complete if it satisfies two conditions : 
+\begin{enumerate}
+    \item $A$ is in PSPACE, and 
+    \item every $B$ in PSPACE is polynomial time reducible to $A$.
+\end{enumerate}
+\end{defn}

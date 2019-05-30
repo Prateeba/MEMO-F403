@@ -1,0 +1,58 @@
+\begin{defn}Let $R$ be a logical relation as defined above.
+\begin{enumerate}
+    \item $R$ is componentwise bijunctive if every connected component of the graph $G(R)$ is a bijunctive relation.
+    \item $R$ is OR-free if the relation $OR = {01, 10, 11}$ cannot be obtained from $R$ by setting $k-2$ of the coordinates of $R$ to a constant $c \in \{0, 1\} k-2$. In other words, $R$ is OR-free if $(x_1 \vee x _2)$ is not definable from $R$ by fixing $k-2$ variables.
+    \item R is NAND-free if the relation $NAND = {00, 01, 10}$ cannot be obtained from $R$ by setting $k-2$ of the coordinates of $R$ to a constant $c \in \{0, 1\} k-2$. In other words, $R$ is NAND-free if $(\neg x_1 \vee \neg x_2 ) $is not definable from $R$ by fixing $k-2$ variables.
+\end{enumerate}
+We are now ready to introduce the key concept of a tight set of relations.
+\end{defn}
+
+\begin{defn}
+A set $\mathcal{S}$ of logical relations is tight if at least one of the following three conditions holds: 
+\begin{enumerate}
+    \item Every relation in S is componentwise bijunctive.
+    \item Every relation in S is OR-free.
+    \item Every relation in S is NAND-free.
+\end{enumerate}
+\end{defn}
+
+
+
+
+\subsection{Circuit formulation}
+Now that the NFC-graph is formally defined, we can see what the circuit formulation of the NCL machine entails.
+
+\begin{defn}
+Broadly stated a circuit is composed of a collection of various logic gates wired together with a one-to-one pairing. 
+\end{defn}
+
+\begin{defn}
+A logic gate is an elementary building block of a digital circuit. A gate plays the role of an input or output port. It's state can be acive or inactive. The different gates considered in the circuit are the following
+\begin{enumerate}
+    \item AND gate 
+    \item OR gate 
+    \item SPLIT gate 
+    \item LATCH gate 
+    \item WEAK OR gate 
+    \item 1 input gate 
+\end{enumerate}
+\end{defn}
+
+The circuit must satisfy the following constraints : 
+\begin{enumerate}
+    \item An inactive output may not be connected to an active input.
+    \item Two active inputs may not be connected.
+    \item Two inactive outputs may not be connected. 
+\end{enumerate}
+
+\subsection{Equivalence between $n-f$ graph formulation and the circuit formulation}
+\begin{lemma}
+Normal-form constraint graphs and AND/OR circuits are polynomial time equivalent. \\ 
+The equivalence is given between the ports in the circuit and edges in the $n-f$ graph by swapping ports and edges when appropriate. To prove this we apply the following conversions : \\ 
+[Add drawings of edges and logic ports]
+\end{lemma}
+
+\begin{corollary}
+Lemma above proves that AND and OR are universal gates which means that we can show that a problem is PSPACE-hard by showing how to construct an AND/OR circuit as an instance of the problem.
+\end{corollary}
+[Put different lemmas]

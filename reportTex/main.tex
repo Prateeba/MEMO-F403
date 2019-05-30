@@ -1,0 +1,157 @@
+\documentclass[12pt]{article}
+
+\pagestyle{plain}
+\textwidth 6.5 in
+\oddsidemargin 0 in
+\evensidemargin 0 in
+\topmargin 0 in
+\textheight 8 in
+
+\pagestyle{empty}
+
+\usepackage[all]{xy}
+\usepackage{graphicx}
+\usepackage{svg}
+\usepackage{units}
+\usepackage{enumerate}
+\usepackage[hidelinks]{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{float}
+
+
+\usepackage{amssymb, amsmath, pict2e}
+ \pagestyle{myheadings}
+
+\usepackage{pdfsync}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage[normalem]{ulem}
+\usepackage{cancel}
+
+\usepackage{color}
+\usepackage{optidef} %formules d'optimisation 
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{environ}
+\usepackage{environ}
+\makeatletter
+\newsavebox{\measure@tikzpicture}
+\NewEnviron{scaletikzpicturetowidth}[1]{%
+  \def\tikz@width{#1}%
+  \def\tikzscale{1}\begin{lrbox}{\measure@tikzpicture}%
+  \BODY
+  \end{lrbox}%
+  \pgfmathparse{#1/\wd\measure@tikzpicture}%
+  \edef\tikzscale{\pgfmathresult}%
+  \BODY
+}
+
+
+\title{Reconfiguration problems\\
+\small MEMO-F403 -- Preparatory work for the master thesis}
+
+
+\author{Prateeba Ruggoo$^1$  \\  Department of Computer
+Science \\ Universite Libre de Bruxelles\\ {\small pruggoo@ulb.ac.be$^1$}\\[0.5cm]{\small Advisor:
+Jean Cardinal}}
+
+
+\date{May 27, 2019}
+
+%%%%%%%%%%%%%%%%  start macros  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheorem{theorem}{Theorem}
+\newtheorem{defn}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{question}[theorem]{Question}
+
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\newtheorem{hyp}[theorem]{Hypothesis}
+\newtheorem{alg}[theorem]{Algorithm}
+\numberwithin{theorem}{subsection}
+
+\newcommand{\qed}{\mbox{$\Box$}}
+\newcommand{\proof}{\medbreak\par\noindent{\bf Proof. }}
+ \newcommand{\GP}{{\vec{G}}_P}
+\newcommand{\GN}{{\vec{G}}_N}
+
+\newcommand{\cover}{\mathrel{\rlap{$\prec$}
+                                \rlap{\hskip 0.7em $\cdot$}
+                                 \phantom{\prec}}}
+
+\newcommand{\re}{re}
+
+\newcommand{\up}{\mbox{\rm{up}}}
+\newcommand{\side}{\mbox{\rm{side}}}
+\newcommand{\type}{\mbox{\rm{type}}}
+
+
+\def\reals{{\mathbb R}}
+
+
+\newcommand{\ahat}{{\hat{a}}}
+\newcommand{\bhat}{{\hat{b}}}
+\newcommand{\chat}{{\hat{c}}}
+\newcommand{\dhat}{{\hat{d}}}
+\newcommand{\bolda}{{\bf{a}}}
+\newcommand{\boldb}{{\bf{b}}}
+\newcommand{\boldc}{{\bf{c}}}
+\newcommand{\boldd}{{\bf{d}}}
+
+\newcommand{\iplus}{{\cal I}^+}
+\newcommand{\iminus}{{\cal I}^-}
+\newcommand{\ipm}{{\cal I}^{\pm}}
+\newcommand{\ipmix}{{\cal I}^{{\cal M}}}
+
+\newcommand{\upl}{{\cal U}^+}
+\newcommand{\uminus}{{\cal U}^-}
+\newcommand{\upm}{{\cal U}^{\pm}}
+\newcommand{\upmix}{{\cal U}^{{\cal M}}}
+
+
+\newcommand{\ppl}{{\cal P}^+}
+\newcommand{\pminus}{{\cal P}^-}
+\newcommand{\ppm}{{\cal P}^{\pm}}
+\newcommand{\ppmix}{{\cal P}^{{\cal M}}}
+\newcommand{\bpm}{{\cal B}^{\pm}}
+\newcommand{\tpm}{{\cal T}^{\pm}}
+\newcommand{\bpmix}{{\cal B}^{{\cal M}}}
+\newcommand{\tpmix}{{\cal T}^{{\cal M}}}
+\setcounter{secnumdepth}{5}
+%%%%%%%%%%%%%%%%  end macros  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+  \maketitle
+
+%\nocite{*}
+\bibliographystyle{alpha}
+
+
+\begin{center} {\sl ABSTRACT} \end{center}
+
+\begin{quotation}
+Reconfiguration problems are generally defined as follows, given two feasible solutions of a problem is there a way to transform one feasible solution to another such that all intermediate solutions obtained are also feasible?
+In this survey a state of art about older and more recent work on this type of problem is given. The emphasis will be on the computational complexity of the different types of problems seen. 
+\end{quotation}
+
+\input{chap0}
+\input{chap1}
+\input{chap2}
+\input{chap3}
+\input{chap4}
+\input{chap5}
+\input{chap6}
+
+\newpage
+\nocite{*}
+\bibliographystyle{alpha}
+\bibliography{main}
+
+\end{document}
