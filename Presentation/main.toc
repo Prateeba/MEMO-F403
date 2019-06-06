@@ -1,0 +1,7 @@
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Power Supply Reconfiguration Problem}{7}{0}{1}
+\beamer@sectionintoc {2}{Reconfiguration problems}{10}{0}{2}
+\beamer@subsectionintoc {2}{1}{Satisfiability Reconfiguration Problems}{13}{0}{2}
+\beamer@subsectionintoc {2}{2}{Complexity}{15}{0}{2}
+\beamer@sectionintoc {3}{Goal}{16}{0}{3}
+\beamer@sectionintoc {4}{Open questions}{17}{0}{4}

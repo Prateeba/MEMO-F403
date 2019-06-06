@@ -1,0 +1,48 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lipsum, lmodern}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{animate}
+\usepackage{algorithm,algorithmic}
+\usepackage{optidef} %formules d'optimisation
+\include{pythonlisting}
+
+\usetikzlibrary{arrows}
+
+\usetheme{/Milano} % or Median, or Metro, or PraterStreet, or Milano
+
+\newtheorem{remark}[theorem]{Remark}
+
+\author{Prateeba\\ Ruggoo}
+\supervisor{Jean\\ Cardinal}
+\title{Reconfiguration problems}
+\subtitle{Complexity analysis}
+\institute{Université Libre de Bruxelles}
+\department{Department of Computer Science - ULB}
+\date{\today}
+
+\logo{\includegraphics[scale=0.7]{img/ulbquadri_mini}}
+\titlepagelogoA{\includegraphics[scale=1.5]{img/ulbquadri_mini}}
+\backgroundlogo{\includegraphics[scale=1.4]{img/ulb}}
+
+\begin{document}
+\frame{\maketitle}
+\begin{frame}{Table of contents}
+	\tableofcontents
+\end{frame}
+
+\input{chapters/intro.tex}
+%\input{chapters/SAT.tex}
+%\input{chapters/BIP.tex}
+
+
+\thanksframe{Thank you for your attention \\
+The slides, resources and report can be found at: \\
+\url{https://github.com/Prateeba/MEMO-F403}
+}
+
+
+\end{document}

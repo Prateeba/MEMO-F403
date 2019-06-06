@@ -1,0 +1,12 @@
+\section{Satisfiability reconfiguration problems}
+
+\begin{frame}{Satisfiability reconfiguration problems}
+  \begin{block}{Definition}
+  Given a boolean formula $\phi$ with $n$ boolean variables $\{x_i,x_{i+1}, \dots, x_n\}$ with $i = \{0,\dots, n\}$ and two configurations $s_0$, $s_t$ from $\{T,F\}^{n}$ that satisfy $\phi$, is there a way to transform one configuration to the other with the following constraints:
+  \begin{enumerate}
+      \item At each step, only one variable $x_i$ can be flipped.
+      \item Each intermediate configuration $x_k$ must be feasible i.e satisfy $\phi$.
+  \end{enumerate}
+  \end{block}
+
+\end{frame}
